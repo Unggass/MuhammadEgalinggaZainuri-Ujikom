@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class AnimalMovement : MonoBehaviour
 {
     public float speed = 1.0f;
+
+    public int scoreValue;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +20,7 @@ public class AnimalMovement : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        if (transform.position.z < -10)
+        if (transform.position.z < -15)
         {
             Destroy(gameObject);
         }
@@ -27,5 +30,14 @@ public class AnimalMovement : MonoBehaviour
     {
         Destroy(gameObject);
         Destroy(other.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.AddScore(scoreValue);
+        }
     }
 }

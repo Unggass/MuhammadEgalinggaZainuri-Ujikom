@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  scoreValue: 5
 --- !u!65 &-9066853223482688051
 BoxCollider:
   m_ObjectHideFlags: 0
