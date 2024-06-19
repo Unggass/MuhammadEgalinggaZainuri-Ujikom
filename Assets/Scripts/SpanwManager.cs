@@ -12,7 +12,7 @@ public class SpanwManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnAnimal", 2f, 1.5f);
+        InvokeRepeating("SpawnAnimal", 4f, 2f); 
     }
 
     // Update is called once per frame
