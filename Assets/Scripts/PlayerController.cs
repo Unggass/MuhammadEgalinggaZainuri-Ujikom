@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject foodPrefab;
+    public GameObject pauseMenu;
+
     private Rigidbody rb;
 
     public float moveSpeed = 5.0f;
+
+    private bool isPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,30 @@ public class PlayerController : MonoBehaviour
             Instantiate(foodPrefab, transform.position, foodPrefab.transform.rotation);
         }
         
-        //DestroyObject(foodPrefab, 3f);
+       if(Input.GetKeyDown(KeyCode.Escape) )
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void Pause()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 }
