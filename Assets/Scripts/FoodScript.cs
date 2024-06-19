@@ -16,5 +16,7 @@ public class FoodScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+        Destroy(gameObject, 3f);
     }
 }

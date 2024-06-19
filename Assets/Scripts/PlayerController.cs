@@ -27,5 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(foodPrefab, transform.position, foodPrefab.transform.rotation);
         }
+        
+        //DestroyObject(foodPrefab, 3f);
     }
 }
